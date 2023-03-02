@@ -1,1 +1,3 @@
-First app from ODIN project
+Library app that tracks the book the user has read
+
+from ODIN project

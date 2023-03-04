@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="book.css">
     <title>Book Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
   </head>
   <body>
     <button id="new-book-btn">Create New Book</button>
-    <form id="new-book-form" style="display: yes;">
+    <form id="new-book-form" style="display: none;">
       <label for="title">Title:</label>
       <input type="text" id="title">
       <label for="author">Author:</label>
@@ -18,6 +21,9 @@
       <input type="checkbox" id="read">
       <input type="submit" value="Add Book">
     </form>
+    <div id="library">
+
+    </div>
     <script src="library.js"></script>
   </body>
 </html>

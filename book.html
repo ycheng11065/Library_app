@@ -6,24 +6,36 @@
     <title>Book Library</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <button id="new-book-btn">Create New Book</button>
-    <form id="new-book-form" style="display: none;">
-      <label for="title">Title:</label>
-      <input type="text" id="title">
-      <label for="author">Author:</label>
-      <input type="text" id="author">
-      <label for="pages">Pages:</label>
-      <input type="text" id="pages">
-      <label for="read">Read</label>
-      <input type="checkbox" id="read">
-      <input type="submit" value="Add Book">
-    </form>
+    <div class="form-div">
+      <form id="new-book-form" style="display: none;">
+        <label for="title">Title:</label>
+        <input type="text" id="title">
+        <div class="title-message"> 
+          <p id="field-exists" style="display: none">Note: This title already exists</p>
+        </div>
+        <label for="author">Author:</label>
+        <input type="text" id="author">
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages">
+        <label for="read">Read</label>
+        <input type="checkbox" id="read">
+        <input type="submit" value="Add Book">
+        <div class="end-message"> 
+          <p id="field-empty" style="display: none">One or more field is empty </p>
+        </div>
+      </form>
+    </div>
     <div id="library">
 
     </div>
     <script src="library.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
+

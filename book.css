@@ -1,36 +1,60 @@
 * {
     box-sizing: border-box;
-    font-family:'Source Sans Pro', sans-serif;;
+    font-family:'Quicksand', 'Source Sans Pro', sans-serif;;
     font-weight: 900;
 }
 
+:root {
+    --top-button-pos: 0;
+}
+
+body {
+    background-color: #1D1F20;
+}
+
 #new-book-btn {
+    top: var(--top-button-pos);
+    position: sticky;
     display: block;
-    background-color: blue;
+    /* background-color: #7F00FF; */
+    /* background-color: #806bcb; */
+    background-color: #479AD1; 
     color: white;
     margin: 0 auto;
     font-size: 20px;
     font-weight: bold;
-    /* height: 50px; */
     border: none;
     border-radius: 10px;
     padding: 20px;
+    z-index: 5;
+}
+
+.form-div {
+    display: flex;
+    justify-content: center;
 }
 
 #new-book-form {
+    top: 40px;
+    background-color: #1D1F20;
+    color: white;
+    /* background-color: white; */
+    position: fixed;
     width: 500px;
     margin: 50px auto;
     text-align: center;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 3px solid #ddd;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);;
+    z-index: 15;
 }
 
 label {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     display: block;
+    font-size: 25px
 }
 
 input[type="text"] {
@@ -52,12 +76,16 @@ input[type="text"]:focus {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.read {
+    margin-top: 10px;
+}
+
 input[type="submit"] {
     width: 100%;
     padding: 12px 20px;
     font-size: 18px;
     margin-top: 20px;
-    background-color: #333;
+    background-color: #479AD1;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -79,12 +107,43 @@ input[type="submit"]:hover {
 }
 
 .book-card {
+    /* color: white; */
+    background-color: white;
     margin: 30px 0;
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
     border-radius: 10px;
     text-align: center;
+    z-index: 2;
+    font-size: 20px;
+}
+
+.book-title {
+    /* border: 2px solid red; */
+    margin: 0px;
+    position: relative;
+    top: 0px;
+    font-size: 25px;
+    font-weight: 1000;
+}
+
+.book-author {
+    top: 20px;
+    margin: 15px auto;
+    font-size: 20px;
+}
+
+.book-page {
+    top: 20px;
+    margin: 15px auto;
+    font-size: 20px;
+}
+
+.book-status {
+    top: 20px;
+    margin: 15px auto;
+    font-size: 20px;
 }
 
 

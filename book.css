@@ -108,6 +108,7 @@ input[type="submit"]:hover {
 
 .book-card {
     /* color: white; */
+    position: relative;
     background-color: white;
     margin: 30px 0;
     padding: 20px;
@@ -145,5 +146,38 @@ input[type="submit"]:hover {
     margin: 15px auto;
     font-size: 20px;
 }
+
+.x-btn {
+    position: absolute;
+    background-color: transparent;
+    transition: transform 0.2s;
+    border: none;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+}
+
+.x-btn:hover {
+    color: white;
+    transform: scale(0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); 
+    /* border: 1px solid black; */
+}
+
+#x-btn-icon {
+    font-size: 50px;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+}
+
+
+
+
+
 
 

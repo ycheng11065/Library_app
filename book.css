@@ -6,10 +6,12 @@
 
 :root {
     --top-button-pos: 0;
+    --main-border-radius: 10px;
 }
 
 body {
-    background-color: #1D1F20;
+    /* background-color: #1D1F20; */
+    background-color: #484848;
 }
 
 #new-book-btn {
@@ -24,11 +26,15 @@ body {
     font-size: 20px;
     font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: var(--main-border-radius);
     padding: 20px;
     z-index: 5;
 }
 
+#new-book-btn:hover {
+    background-color: #3CB371;
+}
+ 
 .form-div {
     display: flex;
     justify-content: center;
@@ -45,7 +51,7 @@ body {
     text-align: center;
     padding: 20px;
     border: 3px solid #ddd;
-    border-radius: 10px;
+    border-radius: var(--main-border-radius);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);;
     z-index: 15;
 }
@@ -93,7 +99,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #444;
+    background-color: #3CB371;
 }
 
 
@@ -114,7 +120,7 @@ input[type="submit"]:hover {
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-    border-radius: 10px;
+    border-radius: var(--main-border-radius);
     text-align: center;
     z-index: 2;
     font-size: 20px;
@@ -147,6 +153,10 @@ input[type="submit"]:hover {
     font-size: 20px;
 }
 
+.error-msg {
+    color: #FF9494;
+}
+
 .x-btn {
     position: absolute;
     background-color: transparent;
@@ -174,6 +184,38 @@ input[type="submit"]:hover {
     top: -7px;
     right: -7px;
 }
+
+
+.edit-btn {
+    position: absolute;
+    background-color: transparent;
+    transition: transform 0.2s;
+    border: none;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+
+.edit-btn:hover {
+    color: white;
+    transform: scale(0.9);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); 
+}
+
+#edit-btn-icon {
+    font-size: 35px;
+    position: absolute;
+    top: -3px;
+    right: -1px;
+}
+
+/* .toggle-read-btn {
+    width: 200px;
+    border-radius: var(--main-border-radius);
+} */
 
 
 

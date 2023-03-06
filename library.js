@@ -1,28 +1,15 @@
 const library = [];
 const bookSet = new Set();
-const countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua &amp; Barbuda",
-  "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados",
-  "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia &amp; Herzegovina", "Botswana", "Brazil",
-  "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde",
-  "Cayman Islands", "Central Arfrican Republic", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica",
-  "Cote D Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica",
-  "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia",
-  "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon",
-  "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey",
-  "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran",
-  "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
-  "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania",
-  "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands",
-  "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco",
-  "Mozambique", "Myanmar", "Namibia", "Nauro", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand"];
 
 function setReadColor(book, index) {
   const currBook = document.querySelector(`#book-${index}`);
   if (book.read) {
-    currBook.style.backgroundColor = "#7F00FF";
+    // currBook.style.backgroundColor = "#7F00FF";
+    currBook.style.backgroundColor = "hsla(269.9, 100%, 50%, 1)";
     currBook.style.color = "white";
   } else {
-    currBook.style.background = "linear-gradient(to bottom right, #282828, #6F6F6F)";
+    // currBook.style.background = "linear-gradient(to bottom right, #101010, #6F6F6F)";
+    currBook.style.background = "hsla(269.9, 5%, 50%, 1)";
     currBook.style.color = "white";
   }
 }
@@ -37,6 +24,11 @@ function render() {
     bookEl.setAttribute("class", "book-card");
     bookEl.setAttribute("id", `book-${i}`);
     bookEl.innerHTML = `
+        <button class="edit-btn">
+            <span>
+                <ion-icon  id="edit-btn-icon" name="create-outline"></ion-icon>
+            </span>
+        </button>
         <button class="x-btn" onclick="displayAlert(${i})">
             <span>
                 <ion-icon id="x-btn-icon" name="close-outline"></ion-icon>
@@ -49,7 +41,10 @@ function render() {
         <div class="book-body">
           <p class="book-page">${book.pages} pages</p>
           <p class="book-status">${book.read ? "Read" : "Not Read Yet"}</p>
-          <button class="toggle-read-btn" onclick="toggleRead(${i})">Toggle Read</button>
+          <ion-item>
+            <ion-label>Default Toggle</ion-label>
+            <ion-toggle slot="end"></ion-toggle>
+          </ion-item>
         </div>
       `;
     libraryEl.appendChild(bookEl);
@@ -215,3 +210,10 @@ for (let i = 0; i < 25; i += 1) {
 }
 
 render();
+
+const del = document.querySelector("#book-0 .x-btn").getBoundingClientRect();
+console.log(del.top);
+console.log(del.bottom);
+const edit = document.querySelector("#book-0 .edit-btn").getBoundingClientRect();
+console.log(edit.top);
+console.log(edit.bottom);

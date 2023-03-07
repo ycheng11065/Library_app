@@ -7,6 +7,7 @@
 :root {
     --top-button-pos: 0;
     --main-border-radius: 10px;
+    --book-body-font-size: 20px;
 }
 
 body {
@@ -123,34 +124,28 @@ input[type="submit"]:hover {
     border-radius: var(--main-border-radius);
     text-align: center;
     z-index: 2;
-    font-size: 20px;
+    font-size: var(--book-body-font-size);
 }
 
 .book-title {
     /* border: 2px solid red; */
-    margin: 0px;
+    height: 40px;
+    margin: 0;
+    margin-bottom: 0;
     position: relative;
     top: 0px;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 1000;
 }
 
 .book-author {
-    top: 20px;
-    margin: 15px auto;
-    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 .book-page {
-    top: 20px;
-    margin: 15px auto;
-    font-size: 20px;
-}
-
-.book-status {
-    top: 20px;
-    margin: 15px auto;
-    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .error-msg {
@@ -212,10 +207,49 @@ input[type="submit"]:hover {
     right: -1px;
 }
 
-/* .toggle-read-btn {
-    width: 200px;
-    border-radius: var(--main-border-radius);
-} */
+.toggle-button h3{
+    font-size: var(--book-body-font-size);
+    margin-top: 0;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 0 10px;
+    bottom: 10px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-button input {
+    display: none;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50px;
+    transform: var(--before-content);
+}
 
 
 

@@ -1,16 +1,30 @@
 const library = [];
 const bookSet = new Set();
 
-function setReadColor(book, index) {
+// function setToggle(index) {
+//   const currBook = library[index];
+//   const toggleBox = document.querySelector(`#book-${index}  .slider`);
+//   toggleBox.style.backgroundColor = "#3CB371";
+//   console.log(window.getComputedStyle(toggleBox).backgroundColor);
+
+//   toggleRead(index);
+// }
+
+function setReadColor(index) {
   const currBook = document.querySelector(`#book-${index}`);
+  const toggleBox = document.querySelector(`#book-${index}  .slider`);
+  const book = library[index];
   if (book.read) {
-    // currBook.style.backgroundColor = "#7F00FF";
+    console.log("read");
     currBook.style.backgroundColor = "hsla(269.9, 100%, 50%, 1)";
     currBook.style.color = "white";
+    toggleBox.style.backgroundColor = "#3CB371";
+    toggleBox.style.setProperty("--before-content", "translateX(26px)");
   } else {
-    // currBook.style.background = "linear-gradient(to bottom right, #101010, #6F6F6F)";
     currBook.style.background = "hsla(269.9, 5%, 50%, 1)";
     currBook.style.color = "white";
+    toggleBox.style.backgroundColor = "#ccc";
+    toggleBox.style.setProperty("--before-content", "none");
   }
 }
 
@@ -40,16 +54,17 @@ function render() {
         </div>
         <div class="book-body">
           <p class="book-page">${book.pages} pages</p>
-          <p class="book-status">${book.read ? "Read" : "Not Read Yet"}</p>
-          <ion-item>
-            <ion-label>Default Toggle</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
+          <div class="toggle-button">
+            <h3>Mark as read</h3> 
+            <label class="switch">
+              <input class="read-checkbox" id="${i}" type="checkbox" onclick="toggleRead(${i})">
+              <span class="slider"> </span>
+            </label>
+          </div>
         </div>
       `;
     libraryEl.appendChild(bookEl);
-    // document.querySelector(`#book-${i}`).style.backgroundColor = "blue";
-    setReadColor(book, i);
+    setReadColor(i);
   }
 }
 
@@ -71,12 +86,12 @@ Book.prototype.toggleRead = function () {
 // eslint-disable-next-line
 function toggleRead(index) {
   library[index].toggleRead();
-  render();
+  setReadColor(index);
+  // render();
 }
 
 // eslint-disable-next-line
 function removeBook(index) {   
-  console.log(library[index].title);
   library.splice(index, 1);
   render();
 }
@@ -92,6 +107,8 @@ function addBookToLibrary() {
   bookSet.add(title);
   render();
 }
+
+// Event listeners
 
 let isDragging = false;
 let startX; let startY;
@@ -204,16 +221,9 @@ titleInput.addEventListener("blur", () => {
   }
 });
 
-for (let i = 0; i < 25; i += 1) {
-  library.push(new Book("book1", "Charles", 60, false));
+for (let i = 0; i < 2; i += 1) {
+  library.push(new Book("The hobbit", "Charles", 60, false));
   bookSet.add("book1");
 }
 
 render();
-
-const del = document.querySelector("#book-0 .x-btn").getBoundingClientRect();
-console.log(del.top);
-console.log(del.bottom);
-const edit = document.querySelector("#book-0 .edit-btn").getBoundingClientRect();
-console.log(edit.top);
-console.log(edit.bottom);

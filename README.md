@@ -5,9 +5,9 @@ Simply press on "Create New Book" button then enter title, author, page number a
 Books that are done reading are displayed in color otherwise it is displayed in grey
 
 Upcoming changes: <br />
-*Night and day mode 
-*Edit button 
-*Suggested search engine
+*Night and day mode <br />
+*Edit button <br />
+*Suggested search engine <br />
 *A better UI
 
 Created for the ODIN project

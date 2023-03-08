@@ -236,9 +236,10 @@ titleInput.addEventListener("blur", () => {
   }
 });
 
-for (let i = 0; i < 2; i += 1) {
-  library.push(new Book("The hobbit", "Charles", 60, false));
-  bookSet.add("book1");
-}
+// For testing
+// for (let i = 0; i < 2; i += 1) {
+//   library.push(new Book("The hobbit", "Charles", 60, false));
+//   bookSet.add("book1");
+// }
 
-render();
+// render();

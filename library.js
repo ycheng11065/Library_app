@@ -28,6 +28,19 @@ function setReadColor(index) {
   }
 }
 
+function titleAdjust(title) {
+  if (title == null) {
+    return;
+  }
+  const titleText = title.querySelector("book-title");
+
+  while (titleText.offsetHeight > title.offsetHeight || titleText.offsetWidth > title.offsetWidth) {
+    let fontSize = parseInt(window.getComputerStyle(titleText).fontSize, 10);
+    fontSize -= 1;
+    titleText.style.fontSize = `${fontSize}px`;
+  }
+}
+
 // Renders all book objects within library array
 function render() {
   const libraryEl = document.querySelector("#library");
@@ -63,6 +76,8 @@ function render() {
           </div>
         </div>
       `;
+    const title = document.querySelector(`#book-${i} .title`);
+    titleAdjust(title);
     libraryEl.appendChild(bookEl);
     setReadColor(i);
   }
